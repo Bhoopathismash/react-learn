@@ -6,6 +6,8 @@ function Home() {
   return (
     <>
       <h3>Welcome Home</h3>
+
+      <h2>Lazy loading</h2>
       <Suspense fallback={<div>Loading....</div>}>
         <LazyComponent />
       </Suspense>

@@ -1,19 +1,18 @@
-import React from 'react';
-import GetDerivedState from './GetDerivedState.js';
-import EventHandleComponent from './EventHandleComponent';
-import HigherOrderComponent from './HigherOrderComponent';
-import HOCWelcome from './HOCWelcome';
+import React from "react";
+import GetDerivedState from "./GetDerivedState";
+import HigherOrderComponent from "./HigherOrderComponent";
+import HOCWelcome from "./HOCWelcome";
 
 class ClassTestComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = { count: 1 };
-    console.log('000', props);
+    console.log("000", props);
     //const NewHocComponent = HigherOrderComponent(HOCWelcome);
   }
 
   render() {
-    console.log('111');
+    console.log("111");
     return (
       <div>
         <h1>Hello, world!</h1>
@@ -25,9 +24,7 @@ class ClassTestComponent extends React.Component {
         <hr />
         <GetDerivedState favcol="green" />
         <hr />
-        <EventHandleComponent id={11} name={'bhoopathi'} />
-        <hr />
-        <HOCWelcome name={'Bhoopathi'} />
+        <HOCWelcome name={"Bhoopathi"} />
         <hr />
         <HigherOrderComponent />
         <hr />
@@ -36,12 +33,12 @@ class ClassTestComponent extends React.Component {
     );
   }
   testtt() {
-    console.log('555');
+    console.log("555");
   }
 
   handleClick = () => {
-    console.log('------');
-    console.log('666');
+    console.log("------");
+    console.log("666");
 
     this.setState((state, props) => ({
       count: state.count + 1,
@@ -58,7 +55,7 @@ class ClassTestComponent extends React.Component {
   // };
 
   componentDidMount() {
-    console.log('222');
+    console.log("222");
     //this.timer = setInterval(() => this.tick(), 1000);
     //const NewHocComponent = HigherOrderComponent(HOCWelcome);
   }
@@ -68,11 +65,11 @@ class ClassTestComponent extends React.Component {
   // }
 
   componentDidUpdate() {
-    console.log('333');
+    console.log("333");
   }
 
   componentWillUnmount() {
-    console.log('444');
+    console.log("444");
     //clearInterval(this.timer);
   }
 }
