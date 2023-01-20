@@ -1,18 +1,23 @@
-import React, { useContext } from 'react';
-import { ThemeContext } from '../NewApp';
+import React, { useContext } from "react";
+import { ThemeContext } from "../NewApp";
 
 function About() {
-    const theme = useContext(ThemeContext);
-   
-    return (
-        <>
-            <p>About</p>
+  const theme = useContext(ThemeContext);
 
-            <p style={{ background: theme.background, color: theme.foreground }}>
-                I am styled by theme context!
-            </p>
-        </>
-    )
+  return (
+    <>
+      <p>About</p>
+
+      <p
+        style={{
+          background: theme.colors.background,
+          color: theme.colors.foreground,
+        }}
+      >
+        I am styled by theme context!
+      </p>
+    </>
+  );
 }
 
 export default About;
