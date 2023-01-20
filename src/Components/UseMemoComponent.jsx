@@ -1,36 +1,42 @@
-import React, { useMemo, useState } from "react";
+import React, { useState, useMemo } from "react";
 
 const UseMemoComponent = () => {
-  const [count, setCount] = useState(10);
-  const [arr, setArr] = useState([1, 2, 3, 5]);
+  const [count, setCount] = useState(0);
+  const [todos, setTodos] = useState([]);
 
-  // use memo only for Pure Function
-  function showMaxValue() {
-    console.log("changing max");
-    return Math.max(...arr);
-  }
+  const increment = () => {
+    setCount((c) => c + 1);
+  };
+  const addTodo = () => {
+    setTodos((t) => [...t, "New Todo"]);
+  };
 
-  const memArr = useMemo(() => {
-    return showMaxValue();
-  }, [arr]);
+  const calculation = (num) => {
+    console.log("Calculating...");
+    for (let i = 0; i < 1000000000; i++) {
+      num += 1;
+    }
+    return num;
+  };
+
+  const largeCalculation = useMemo(() => calculation(count), [count]);
 
   return (
-    <>
-      <p>Memo Count: {count}</p>
-      {JSON.stringify(arr)}
-      <p>Array max value: {memArr}</p>
-      <button type="button" onClick={() => setCount(count + 1)}>
-        {" "}
-        Change Memo Count
-      </button>
-      <button
-        type="button"
-        onClick={() => setArr([...arr, Math.round(count * Math.random())])}
-      >
-        {" "}
-        Change Memo Array
-      </button>
-    </>
+    <div>
+      <div>
+        <h2>My Todos</h2>
+        {todos.map((todo, index) => {
+          return <p key={index}>{todo}</p>;
+        })}
+        <button onClick={addTodo}>Add Todo</button>
+      </div>
+      <div>
+        Count: {count} <br />
+        <button onClick={increment}>+</button>
+        <h2>Large Calculation</h2>
+        {largeCalculation}
+      </div>
+    </div>
   );
 };
 
