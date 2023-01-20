@@ -53,6 +53,7 @@ function NewApp() {
       <Header />
       <hr />
       <form onSubmit={mySubmit}>
+        <label> Context test </label> <br />
         <input type="text" value={name} onChange={myChange} /> <br />
         <button type="submit">Sumbit</button>
       </form>
