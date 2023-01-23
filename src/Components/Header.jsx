@@ -10,8 +10,7 @@ import {
 const Header = () => {
   const loginSelector = useSelector((state) => state.loginStatus);
   const dispatch = useDispatch();
-  const middleware = () => {
-    //const dispatch1 = () => {
+  const logActions = () => {
     if (!loginSelector.loading) {
       dispatch(loginStart());
     } else {
@@ -21,10 +20,6 @@ const Header = () => {
         .then((json) => dispatch(loginSuccess({ payload: json })))
         .catch((err) => dispatch(loginError({ error: "Error Login" })));
     }
-
-    //};
-
-    // return dispatch1();
   };
 
   return (
@@ -39,10 +34,11 @@ const Header = () => {
         <Link to="/class">Class</Link> &nbsp;
         <Link to="/hoc">HOC</Link> &nbsp;
         <Link to="/event">Event</Link> &nbsp;
+        <Link to="/task1">Task 1</Link> &nbsp;
         <a
           href="#"
           onClick={(e) => {
-            dispatch(middleware);
+            dispatch(logActions);
             e.preventDefault();
           }}
         >

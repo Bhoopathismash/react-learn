@@ -1,41 +1,31 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const initialState = {
+  loading: true,
+  data: [],
+  error: "",
+};
+
 export const loginReducer = createSlice({
   name: "login",
-  initialState: {
-    loading: true,
-    data: [],
-    error: "",
-  },
+  initialState,
   reducers: {
-    loginStart: (state) => {
-      console.log("inn", state);
-      state.loading = true;
-      state = {
-        loading: true,
-        data: [],
-        error: "",
-      };
-    },
+    loginStart: (state) => ({...initialState}),
     loginSuccess: (state, actions) => {
-      console.log("inn 111", actions);
-      state.loading = false;
-      state.data = actions.payload.payload.data;
-      state = {
+      return state = {
+        ...initialState, 
         loading: false,
-        data: actions.payload,
-        error: "",
-      };
+        data: actions.payload.payload.data,
+      }
     },
     loginError: (state, actions) => {
-      console.log("actions", actions);
-      state.error = actions.payload.error;
-      state = {
+      return state = {
+        ...initialState, 
         loading: false,
         data: [],
-        error: actions.error,
-      };
-    },
+        error: actions.payload.error
+      }
+    }
   },
 });
 

@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useCallback } from "react";
 
 const UseMemoComponent = () => {
   const [count, setCount] = useState(0);
@@ -19,11 +19,13 @@ const UseMemoComponent = () => {
     return num;
   };
 
+  //const largeCalculation = calculation(count);
   const largeCalculation = useMemo(() => calculation(count), [count]);
+  //const largeCalculation = useCallback(() => calculation(count), [count]);
 
   return (
     <div>
-      <div>
+      <div> 
         <h2>My Todos</h2>
         {todos.map((todo, index) => {
           return <p key={index}>{todo}</p>;

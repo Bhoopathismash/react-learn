@@ -2,82 +2,38 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import NewApp from "./NewApp";
 import reportWebVitals from "./reportWebVitals";
-import { applyMiddleware, createStore } from "redux";
 import { Provider } from "react-redux";
-import thunk from "redux-thunk";
-import store from "./Redux/store/index";
+import store from "./Redux/store/reduxIndex";
 import { BrowserRouter } from "react-router-dom";
 //import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Routing from "./Routes/Routing";
 import ErrorPageComponent from "./Components/ErrorPageComponent";
-import Contact from "./Components/Contact";
 
-//Actions
-//export const loginAction = () => ({type: 'login_start'});
-
-/* const intialValue = {
-  loading: false,
-  data: [],
-  error: ''
-}; */
-
-//Reducer
-/* const loginReducer = (state = intialValue, actions) => {
-    switch (actions.type) {
-      case 'login_start':
-        return {
-          loading: true,
-          data: [],
-          error: ''
-        }
-      case 'login_success':
-        return {
-          loading: false,
-          data: actions.payload,
-          error: ''
-        }
-      case 'login_error':
-        return {
-          loading: false,
-          data: [],
-          error: actions.error
-        }
-      default:
-        return {
-          ...state
-        }
-    }
-} */
-
-//Store
-//let store = createStore(loginReducer, applyMiddleware(thunk));
-
-// const router = createBrowserRouter([
-//   {
-//     path: "/",
-//     element: <Routing />,
-//     errorElement: <ErrorPageComponent />,
-//     children: [
-//       {
-//         path: "contacts/:contactId",
-//         element: <Contact />,
-//       },
-//     ],
-//   },
-//   // {
-//   //   path: "contacts/:contactId",
-//   //   element: <Contact />,
-//   // },
-// ]);
+/*const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Routing />,
+    errorElement: <ErrorPageComponent />,
+    children: [
+      {
+        path: "contacts/:contactId",
+        element: <Contact />,
+      },
+    ],
+  },
+  // {
+  //   path: "contacts/:contactId",
+  //   element: <Contact />,
+  // },
+]);*/
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
     <React.StrictMode>
       <BrowserRouter>
-        <NewApp />
+        <App />
       </BrowserRouter>
       {/* <RouterProvider router={router} /> */}
     </React.StrictMode>
