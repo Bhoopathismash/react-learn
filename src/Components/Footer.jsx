@@ -6,7 +6,10 @@ function Footer(){
 
     return (
         <>
-            <p>Footer Count: {count}</p>
+            <hr />
+            <div className='container'>
+                <p>Footer Count: {count}</p>
+            </div>
         </>
     );
 }

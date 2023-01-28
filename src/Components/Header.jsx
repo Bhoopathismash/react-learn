@@ -1,11 +1,11 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import {
   loginStart,
   loginSuccess,
   loginError,
 } from "../Redux/reducer/loginReducer";
+import NavBarComponent from './NavBarComponent'
 
 const Header = () => {
   const loginSelector = useSelector((state) => state.loginStatus);
@@ -25,26 +25,20 @@ const Header = () => {
   return (
     <>
       <div>
-        <Link to="/">Home</Link> &nbsp;
-        <Link to="/about">About</Link> &nbsp;
-        <Link to="/contact">Contact</Link> &nbsp;
-        <Link to="/use-callback">useCallback</Link> &nbsp;
-        <Link to="/use-memo">useMemo</Link> &nbsp;
-        <Link to="/redux">Redux</Link> &nbsp;
-        <Link to="/class">Class</Link> &nbsp;
-        <Link to="/hoc">HOC</Link> &nbsp;
-        <Link to="/event">Event</Link> &nbsp;
-        <Link to="/task1">Task 1</Link> &nbsp;
-        <a
-          href="#"
-          onClick={(e) => {
-            dispatch(logActions);
-            e.preventDefault();
-          }}
-        >
-          {loginSelector.loading ? "Log In" : "Log Out"}
-        </a>
+        <div className='Navbar'>
+          <NavBarComponent />
+          <a
+            href="#"
+            onClick={(e) => {
+              dispatch(logActions);
+              e.preventDefault();
+            }}
+          >
+            {loginSelector.loading ? "Log In" : "Log Out"}
+          </a>
+        </div>
       </div>
+      <hr />
       {loginSelector.loading ? null : (
         <>
           <hr />

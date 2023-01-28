@@ -1,41 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import store from "./Redux/store/reduxIndex";
-import { BrowserRouter } from "react-router-dom";
-//import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Routing from "./Routes/Routing";
 import ErrorPageComponent from "./Components/ErrorPageComponent";
-
-/*const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Routing />,
-    errorElement: <ErrorPageComponent />,
-    children: [
-      {
-        path: "contacts/:contactId",
-        element: <Contact />,
-      },
-    ],
-  },
-  // {
-  //   path: "contacts/:contactId",
-  //   element: <Contact />,
-  // },
-]);*/
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
     <React.StrictMode>
-      <BrowserRouter>
         <App />
-      </BrowserRouter>
-      {/* <RouterProvider router={router} /> */}
     </React.StrictMode>
   </Provider>
 );
