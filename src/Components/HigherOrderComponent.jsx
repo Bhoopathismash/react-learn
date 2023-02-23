@@ -22,7 +22,7 @@ const HigherOrderComponent = (Component) => {
 
   return (
     <>
-      <p>HOC Javascript: {result(5)}</p>
+      <p>HOC Javascript: {result(5)}</p> {/* O/P: 8 */}
       <div>{NewComponent}</div>
     </>
   );

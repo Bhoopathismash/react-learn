@@ -20,8 +20,9 @@ const UseMemoComponent = () => {
   };
 
   //const largeCalculation = calculation(count);
-  const largeCalculation = useMemo(() => calculation(count), [count]);
-  //const largeCalculation = useCallback(() => calculation(count), [count]);
+  const largeCalculation = useMemo(() => {
+    return calculation(count)
+  }, [count]);
 
   return (
     <div>

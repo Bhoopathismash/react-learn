@@ -6,10 +6,16 @@ const UseCallbackComponent = () => {
     const myCounty = () => {
         setCount(count + 1);
     }
+   /*  const addSquare = () => {
+        console.log('sqaure log', squareValue);
+        setSquareValue(squareValue * 2);
+    }; */
+
     const addSquare = useCallback(() => {
         console.log('sqaure log', squareValue);
         setSquareValue(squareValue * 2);
     }, [squareValue]);
+
     return (
         <>
             <h3>useCallback</h3>

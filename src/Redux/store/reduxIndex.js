@@ -1,12 +1,14 @@
 import { configureStore } from '@reduxjs/toolkit'
 import counterSliceReducer from '../reducer/counterSlice'
-import loginReducer from '../reducer/loginReducer'
+import loginSlice from '../reducer/loginSlice'
+import messageSlice from '../reducer/messageSlice'
 
-const store =  configureStore({
+const reduxStore =  configureStore({
   reducer: {
     counter: counterSliceReducer,
-    loginStatus: loginReducer,
+    loginSlice,
+    messageSlice,
   }
 });
 
-export default store;
+export default reduxStore;

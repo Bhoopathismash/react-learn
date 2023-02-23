@@ -1,10 +1,11 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 import {
   createBrowserRouter,
   createRoutesFromElements,
   Route,
   RouterProvider,
 } from "react-router-dom";
+import RootLayout from "./Layout/RootLayout";
 import Footer from "./Components/Footer";
 import Home from "./Components/Home";
 import About from "./Components/About";
@@ -18,7 +19,13 @@ import EventHandleComponent from "./Components/EventHandleComponent";
 import TaskOneComponent from "./Components/TaskOneComponent";
 import CustomHookComponent from "./Components/CustomHookComponent";
 import UseContextComponent from "./Components/UseContextComponent";
-import RootLayout from "./Layout/RootLayout";
+import PromiseAwaitComponent from "./Components/PromiseAwaitComponent";
+import ArrayFunctionsComponents from "./Components/ArrayFunctionsComponents";
+import CallApplyBindComponent from "./Components/CallApplyBindComponent";
+import LoginComponent from "./Components/LoginComponent";
+import RegisterComponent from "./Components/RegisterComponent";
+import ProfileComponent from "./Components/ProfileComponent";
+import LogoutComponent from "./Components/LogoutComponent";
 
 export const StudentContext = createContext([]);
 
@@ -41,7 +48,15 @@ const router = createBrowserRouter(
         path="/event"
         element={<EventHandleComponent id={11} name={"bhoopathi"} />}
       />
+      <Route path="/promises" element={<PromiseAwaitComponent />} />
       <Route path="/task1" element={<TaskOneComponent />} />
+      <Route path="/arr-func" element={<ArrayFunctionsComponents />} />
+      <Route path="/call-apply-bind" element={<CallApplyBindComponent />} />
+      <Route path="/login" element={<LoginComponent />} />
+      <Route path="/login" element={<LoginComponent />} />
+      <Route path="/register" element={<RegisterComponent />} />
+      <Route path="/profile" element={<ProfileComponent />} />
+      <Route path="/logout" element={<LogoutComponent />} />
     </Route>
   )
 );

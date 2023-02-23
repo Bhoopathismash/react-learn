@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { increment, decrement } from '../Redux/reducer/counterSlice';
-//import { loginStart, loginSuccess, loginError } from '../Redux/reducer/loginReducer';
+//import { loginStart, loginSuccess, loginError } from '../Redux/reducer/loginSlice';
 
 const ReduxComponent = () => {
     const count = useSelector(state => state.counter.value);

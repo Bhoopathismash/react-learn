@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { loginStart, loginSuccess, loginError } from '../Redux/reducer/loginReducer';
+import { loginStart, loginSuccess, loginError } from '../Redux/reducer/loginSlice';
 
 export const ReduxLoginSelectorService = () => {
     const loginSelector = useSelector(state => state.loginStatus);

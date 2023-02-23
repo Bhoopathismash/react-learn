@@ -5,12 +5,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
-import store from "./Redux/store/reduxIndex";
+import reduxStore from "./Redux/store/reduxIndex";
 import ErrorPageComponent from "./Components/ErrorPageComponent";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <Provider store={store}>
+  <Provider store={reduxStore}>
     <React.StrictMode>
         <App />
     </React.StrictMode>
