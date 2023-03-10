@@ -1,11 +1,12 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { increment, decrement } from '../Redux/reducer/counterSlice';
+import { increment, decrement, incrementDouble, decrementDouble } from '../Redux/reducer/counterSlice';
 //import { loginStart, loginSuccess, loginError } from '../Redux/reducer/loginSlice';
 
 const ReduxComponent = () => {
-    const count = useSelector(state => state.counter.value);
-    const loginSelector = useSelector(state => state.loginStatus);
+    const counterState = useSelector(state => state.counter);
+    const loginSelector = useSelector(state => state.loginSlice);
+    console.log('first', loginSelector)
     const dispatch = useDispatch();
     /* const middleware = () => {
         if (!loginSelector.loading) {
@@ -21,16 +22,24 @@ const ReduxComponent = () => {
 
     return (
         <>
-            <div>
+            {/* <div>
                 <hr/>
                 <p>{JSON.stringify(loginSelector.data)}</p>
                 <p>{loginSelector.error}</p>
                 <hr/>
+            </div> */}
+            <div>
+                <p> Count: {counterState.value}</p>
+                <button onClick={() => dispatch(increment())}>+</button>
+                <button onClick={() => dispatch(decrement())}>-</button>
             </div>
-            <p> Count: {count}</p>
-            <button onClick={() => dispatch(increment())}>+</button>
-            <button onClick={() => dispatch(decrement())}>-</button>
-            <hr/>  
+            <hr/>
+            <div>
+                <p>Double Count: {counterState.doubleValue}</p>
+                <button onClick={() => dispatch(incrementDouble({value: 10}))}>+</button>
+                <button onClick={() => dispatch(decrementDouble({value: 10}))}>-</button>
+            </div>
+            <hr/>
         </>
     )
 }

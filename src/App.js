@@ -53,7 +53,6 @@ const router = createBrowserRouter(
       <Route path="/arr-func" element={<ArrayFunctionsComponents />} />
       <Route path="/call-apply-bind" element={<CallApplyBindComponent />} />
       <Route path="/login" element={<LoginComponent />} />
-      <Route path="/login" element={<LoginComponent />} />
       <Route path="/register" element={<RegisterComponent />} />
       <Route path="/profile" element={<ProfileComponent />} />
       <Route path="/logout" element={<LogoutComponent />} />

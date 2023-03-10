@@ -4,9 +4,8 @@ import { Navigate, useNavigate } from "react-router-dom";
 
 import Form from "react-validation/build/form";
 //import Input from "react-validation/build/input";
-import CheckButton from "react-validation/build/button";
 
-import { login } from "../Redux/actions/auth";
+import { login } from "../Redux/actions/authActions";
 
 const required = (value) => {
   if (!value) {
@@ -22,14 +21,12 @@ const LoginComponent = (props) => {
   let navigate = useNavigate();
 
   const form = useRef();
-  const checkBtn = useRef();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
   const { isLoggedIn } = useSelector((state) => state.loginSlice);
-  //const { message } = useSelector(state => state.message);
 
   const dispatch = useDispatch();
 
@@ -50,18 +47,14 @@ const LoginComponent = (props) => {
 
     form.current.validateAll();
 
-    if (checkBtn.current.context._errors.length === 0) {
-      dispatch(login(email, password))
-        .then(() => {
-          navigate("/profile");
-          window.location.reload();
-        })
-        .catch(() => {
-          setLoading(false);
-        });
-    } else {
-      setLoading(false);
-    }
+    dispatch(login(email, password))
+      .then(() => {
+        navigate("/profile");
+        window.location.reload();
+      })
+      .catch(() => {
+        setLoading(false);
+      });
   };
 
   if (isLoggedIn) {
@@ -112,14 +105,6 @@ const LoginComponent = (props) => {
             </button>
           </div>
 
-          {/* {message && (
-            <div className="form-group">
-              <div className="alert alert-danger" role="alert">
-                {message}
-              </div>
-            </div>
-          )} */}
-          <CheckButton style={{ display: "none" }} ref={checkBtn} />
         </Form>
       </div>
     </div>

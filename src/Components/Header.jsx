@@ -11,8 +11,9 @@ import ApiService from "../Services/ApiService";
 
 const Header = () => {
   const loginSelector = useSelector((state) => state.loginSlice);
+  console.log('loginSelector', loginSelector)
   const dispatch = useDispatch();
- /*  const logActions = async () => {
+  /*  const logActions = async () => {
     if (!loginSelector.loading) {
       dispatch(loginStart());
     } else {
@@ -30,27 +31,16 @@ const Header = () => {
       <div>
         <div className="Navbar">
           <NavBarComponent />
-          {/* <a
-            href="/#"
-            onClick={(e) => {
-              dispatch(logActions);
-              e.preventDefault();
-            }}
-          >
-            {loginSelector.loading ? "Log In" : "Log Out"}
-          </a> */}
         </div>
       </div>
-      <hr />
-      {loginSelector.isLoggedIn ? null : (
-        <>
-          <hr />
+      {!loginSelector.isLoggedIn ? null : (
+        <div className="container">
           <h3>
             {" "}
             Hi {loginSelector.data.first_name} &nbsp;{" "}
             {loginSelector.data.last_name}
           </h3>
-        </>
+        </div>
       )}
     </>
   );

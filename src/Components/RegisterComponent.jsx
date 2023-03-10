@@ -6,7 +6,7 @@ import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
 import { isEmail } from "validator";
 
-import { register } from "../Redux/actions/auth";
+import { register } from "../Redux/actions/authActions";
 
 const required = (value) => {
   if (!value) {

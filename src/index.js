@@ -10,11 +10,11 @@ import ErrorPageComponent from "./Components/ErrorPageComponent";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <Provider store={reduxStore}>
     <React.StrictMode>
+      <Provider store={reduxStore}>
         <App />
+      </Provider>
     </React.StrictMode>
-  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function

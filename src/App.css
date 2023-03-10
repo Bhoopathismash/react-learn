@@ -61,3 +61,7 @@ table, th, td {
 .container {
   margin: 20px;
 }
+
+.card {
+  padding: 20px;
+}
