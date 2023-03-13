@@ -1,14 +1,24 @@
 import React from "react";
 import GetDerivedState from "./GetDerivedState";
-import HigherOrderComponent from "./HigherOrderComponent";
 import HOCWelcome from "./HOCWelcome";
+
+const NewComponent = (Component) => {
+  return (props) => {
+    return (
+      <div>
+        <Component {...props} />
+      </div>
+    );
+  }
+};
+
+const NewHocComponent = NewComponent(HOCWelcome);
 
 class ClassTestComponent extends React.Component {
   constructor(props) {
     super(props);
     this.state = { count: 1 };
     console.log("000", props);
-    //const NewHocComponent = HigherOrderComponent(HOCWelcome);
   }
 
   render() {
@@ -24,11 +34,8 @@ class ClassTestComponent extends React.Component {
         <hr />
         <GetDerivedState favcol="green" />
         <hr />
-        <HOCWelcome name={"Bhoopathi"} />
-        <hr />
-        <HigherOrderComponent />
-        <hr />
-        {/* <NewHocComponent name={'UMA'} /> */}
+        <h4>Class HOC</h4>
+        <NewHocComponent name={'UMA'} />
       </div>
     );
   }
@@ -57,7 +64,6 @@ class ClassTestComponent extends React.Component {
   componentDidMount() {
     console.log("222");
     //this.timer = setInterval(() => this.tick(), 1000);
-    //const NewHocComponent = HigherOrderComponent(HOCWelcome);
   }
 
   // shouldComponentUpdate(newProps, newState) {

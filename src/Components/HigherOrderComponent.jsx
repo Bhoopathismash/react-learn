@@ -1,29 +1,35 @@
 import React from 'react';
+import HOCWelcome from "./HOCWelcome";
 
 const HigherOrderComponent = (Component) => {
   // HOC Javascript
-  function New1(a) {
+  function hocFunction (a) {
     return function New2(b) {
       return a + b;
     };
   }
 
-  const result = New1(3);
-  //console.log(result(5));
+  const result = hocFunction(3);
+  //console.log(result(5)); // O/P: 8
   //HOC Javascript
 
-  const NewComponent = (props) => {
-    return (
-      <div>
-        <Component {...props} />
-      </div>
-    );
+  const NewComponent = (Component) => {
+    return (props) => {
+      return (
+        <div>
+          <Component {...props} />
+        </div>
+      );
+    }
   };
+
+  const HOC = NewComponent(HOCWelcome);
 
   return (
     <>
       <p>HOC Javascript: {result(5)}</p> {/* O/P: 8 */}
-      <div>{NewComponent}</div>
+      <h4>Function HOC</h4>
+      <div><HOC name={'Bhoopathi-Uma'} /></div>
     </>
   );
 };

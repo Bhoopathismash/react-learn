@@ -18,6 +18,7 @@ const NavBarComponent = () => {
             <NavLink to="/use-context">useContextComponent</NavLink>
             <NavLink to="/custom-hook">Custom Hook</NavLink>
             <NavLink to="/redux">Redux</NavLink>
+            <NavLink to="/functional">Functional</NavLink>
             <NavLink to="/class">Class</NavLink>
             <NavLink to="/hoc">HOC</NavLink>
             <NavLink to="/event">Event</NavLink>

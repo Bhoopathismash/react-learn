@@ -13,6 +13,7 @@ import Contact from "./Components/Contact";
 import UseCallbackComponent from "./Components/UseCallbackComponent";
 import UseMemoComponent from "./Components/UseMemoComponent";
 import ReduxComponent from "./Components/ReduxComponent";
+import FunctionalComponent from "./Components/FunctionalComponent";
 import ClassTestComponent from "./Components/ClassTestComponent";
 import HigherOrderComponent from "./Components/HigherOrderComponent";
 import EventHandleComponent from "./Components/EventHandleComponent";
@@ -42,6 +43,7 @@ const router = createBrowserRouter(
       <Route path="/use-context" element={<UseContextComponent />} />
       <Route path="/custom-hook" element={<CustomHookComponent />} />
       <Route path="/redux" element={<ReduxComponent />} />
+      <Route path="/functional" element={<FunctionalComponent />} />
       <Route path="/class" element={<ClassTestComponent />} />
       <Route path="/hoc" element={<HigherOrderComponent />} />
       <Route

@@ -3,25 +3,22 @@ import React, { lazy, Suspense, useContext } from "react";
 const LazyComponent = lazy(() => import("./LazyComponent"));
 
 function Home() {
-
   // Closure example
 
-  function test()
-  {
-      let a=0;
-      function innerTest()
-      {
-      return a+=1;
-      }
-      return innerTest;
+  function test() {
+    let a = 0;
+    function innerTest() {
+      return (a += 1); // a form clousure here from global scope
+    }
+    return innerTest;
   }
-  
+
   var x = test();
-  console.log(x());
-  console.log(x());
-  let a =5;
-  console.log(a);
-  console.log(x());
+  console.log(x()); //1
+  console.log(x()); //2 (closure will added)
+  let a = 5;
+  console.log(a);//5
+  console.log(x());//3 (closure will added)
 
   // Closure example
 
