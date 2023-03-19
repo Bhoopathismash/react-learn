@@ -16,6 +16,7 @@ const NavBarComponent = () => {
             <NavLink to="/use-callback">useCallback</NavLink>
             <NavLink to="/use-memo">useMemo</NavLink>
             <NavLink to="/use-context">useContextComponent</NavLink>
+            <NavLink to="/use-reducer">useReducerComponent</NavLink>
             <NavLink to="/custom-hook">Custom Hook</NavLink>
             <NavLink to="/redux">Redux</NavLink>
             <NavLink to="/functional">Functional</NavLink>

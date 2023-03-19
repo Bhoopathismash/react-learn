@@ -20,6 +20,7 @@ import EventHandleComponent from "./Components/EventHandleComponent";
 import TaskOneComponent from "./Components/TaskOneComponent";
 import CustomHookComponent from "./Components/CustomHookComponent";
 import UseContextComponent from "./Components/UseContextComponent";
+import UseReducerComponent from "./Components/UseReducerComponent";
 import PromiseAwaitComponent from "./Components/PromiseAwaitComponent";
 import ArrayFunctionsComponents from "./Components/ArrayFunctionsComponents";
 import CallApplyBindComponent from "./Components/CallApplyBindComponent";
@@ -41,6 +42,7 @@ const router = createBrowserRouter(
       <Route path="/use-callback" element={<UseCallbackComponent />} />
       <Route path="/use-memo" element={<UseMemoComponent />} />
       <Route path="/use-context" element={<UseContextComponent />} />
+      <Route path="/use-reducer" element={<UseReducerComponent />} />
       <Route path="/custom-hook" element={<CustomHookComponent />} />
       <Route path="/redux" element={<ReduxComponent />} />
       <Route path="/functional" element={<FunctionalComponent />} />
@@ -78,7 +80,7 @@ function App() {
   return (
     <>
       <StudentContext.Provider value={studentNames}>
-        <RouterProvider router={router} />        
+        <RouterProvider router={router} />
       </StudentContext.Provider>
       <hr />
       <div className='container'>
@@ -86,7 +88,7 @@ function App() {
           <label> Context test </label> <br />
           <input type="text" value={name} onChange={myChange} /> <br />
           <button type="submit">Sumbit</button>
-        </form>    
+        </form>
       </div>
       <Footer />
     </>
