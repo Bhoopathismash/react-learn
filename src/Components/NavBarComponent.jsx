@@ -27,6 +27,7 @@ const NavBarComponent = () => {
             <NavLink to="/task1">Task 1</NavLink>
             <NavLink to="/arr-func">Array Functions</NavLink>
             <NavLink to="/call-apply-bind">Function Borrowing(call-apply-bind)</NavLink>
+            <NavLink to="/function-prototype">Function Prototype </NavLink>
             {!currentUser ? (
               <>
                 <NavLink to="/login">Login</NavLink>

@@ -1,13 +1,16 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+//import { useDispatch, useSelector } from 'react-redux';
+import { useAppSelector, useAppDispatch } from '../Hooks/reduxHook'
 import { increment, decrement, incrementDouble, decrementDouble } from '../Redux/reducer/counterSlice';
 //import { loginStart, loginSuccess, loginError } from '../Redux/reducer/loginSlice';
 
 const ReduxComponent = () => {
-    const counterState = useSelector(state => state.counter);
-    const loginSelector = useSelector(state => state.loginSlice);
-    console.log('first', loginSelector)
-    const dispatch = useDispatch();
+    /* const counterState = useSelector(state => state.counter);
+    const loginSelector = useSelector(state => state.loginSlice); */
+    const counterState = useAppSelector(state => state.counter);
+    const loginSelector = useAppSelector(state => state.loginSlice);
+    console.log('first', loginSelector);
+    const dispatch = useAppDispatch();
     /* const middleware = () => {
         if (!loginSelector.loading) {
             dispatch(loginStart());
@@ -29,7 +32,7 @@ const ReduxComponent = () => {
                 <hr/>
             </div> */}
             <div>
-                <p> Count: {counterState.value}</p>
+                <p>Count: {counterState.value}</p>
                 <button onClick={() => dispatch(increment())}>+</button>
                 <button onClick={() => dispatch(decrement())}>-</button>
             </div>

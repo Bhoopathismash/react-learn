@@ -1,42 +1,41 @@
-import React, { memo, useCallback, useState } from 'react';
+import React, { memo, useCallback, useState } from "react";
 
 const UseCallbackComponent = () => {
-    const [count, setCount] = useState(0);
-    const [squareValue, setSquareValue] = useState(1);
-    const myCounty = () => {
-        setCount(count + 1);
-    }
-   /*  const addSquare = () => {
-        console.log('sqaure log', squareValue);
-        setSquareValue(squareValue * 2);
-    }; */
+  const [count, setCount] = useState(0);
+  const [todos, setTodos] = useState([]);
 
-    const addSquare = useCallback(() => {
-        console.log('sqaure log', squareValue);
-        setSquareValue(squareValue * 2);
-    }, [squareValue]);
+  const increment = () => {
+    setCount((c) => c + 1);
+  };
 
-    return (
-        <>
-            <h3>useCallback</h3>
-            <p>Count: {count}</p>
-            <button type='button' onClick={myCounty}>Click</button>
+  const addTodo = useCallback(() => {
+    setTodos((t) => [...t, "New Todo"]);
+  }, []);
 
-            <p>SquareValue: {squareValue} </p>
-            <Square addSquare={addSquare}/>
-        </>
-    );
-}
+  return (
+    <>
+      <h3>useCallback</h3>
+      <Todos todos={todos} addTodo={addTodo} />
+      <hr />
+      <div>
+        Count: {count}
+        <button onClick={increment}>+</button>
+      </div>
+    </>
+  );
+};
 
 export default UseCallbackComponent;
 
-const Square = memo((props) => {
-
-    console.log('Square innn');
-    return (
-        <>
-            <button type='button' onClick={props.addSquare}>Square me</button>
-        </>
-    );
-
+const Todos = memo(({ todos, addTodo }) => {
+  console.log("child render");
+  return (
+    <>
+      <h2>My Todos</h2>
+      {todos.map((todo, index) => {
+        return <p key={index}>{todo}</p>;
+      })}
+      <button onClick={addTodo}>Add Todo</button>
+    </>
+  );
 });

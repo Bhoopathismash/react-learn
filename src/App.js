@@ -28,6 +28,7 @@ import LoginComponent from "./Components/LoginComponent";
 import RegisterComponent from "./Components/RegisterComponent";
 import ProfileComponent from "./Components/ProfileComponent";
 import LogoutComponent from "./Components/LogoutComponent";
+import FunctionPrototypeComponents from "./Components/FunctionPrototypeComponents";
 
 export const StudentContext = createContext([]);
 
@@ -56,6 +57,7 @@ const router = createBrowserRouter(
       <Route path="/task1" element={<TaskOneComponent />} />
       <Route path="/arr-func" element={<ArrayFunctionsComponents />} />
       <Route path="/call-apply-bind" element={<CallApplyBindComponent />} />
+      <Route path="/function-prototype" element={<FunctionPrototypeComponents />} />
       <Route path="/login" element={<LoginComponent />} />
       <Route path="/register" element={<RegisterComponent />} />
       <Route path="/profile" element={<ProfileComponent />} />
