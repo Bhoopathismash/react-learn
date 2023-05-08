@@ -19,6 +19,7 @@ const NavBarComponent = () => {
             <NavLink to="/use-reducer">useReducerComponent</NavLink>
             <NavLink to="/custom-hook">Custom Hook</NavLink>
             <NavLink to="/redux">Redux</NavLink>
+            <NavLink to="/redux-test">Redux Test</NavLink>
             <NavLink to="/functional">Functional</NavLink>
             <NavLink to="/class">Class</NavLink>
             <NavLink to="/hoc">HOC</NavLink>

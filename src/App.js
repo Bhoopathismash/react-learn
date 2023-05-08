@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { createContext, useState } from "react";
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -29,10 +29,7 @@ import RegisterComponent from "./Components/RegisterComponent";
 import ProfileComponent from "./Components/ProfileComponent";
 import LogoutComponent from "./Components/LogoutComponent";
 import FunctionPrototypeComponents from "./Components/FunctionPrototypeComponents";
-
-export const StudentContext = createContext([]);
-
-export const ThemeContext = createContext();
+import ReduxTestComponent from "./Components/ReduxTestComponent";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -46,6 +43,7 @@ const router = createBrowserRouter(
       <Route path="/use-reducer" element={<UseReducerComponent />} />
       <Route path="/custom-hook" element={<CustomHookComponent />} />
       <Route path="/redux" element={<ReduxComponent />} />
+      <Route path="/redux-test" element={<ReduxTestComponent />} />
       <Route path="/functional" element={<FunctionalComponent />} />
       <Route path="/class" element={<ClassTestComponent />} />
       <Route path="/hoc" element={<HigherOrderComponent />} />
@@ -66,9 +64,13 @@ const router = createBrowserRouter(
   )
 );
 
+export const StudentContext = createContext([]);
+export const ThemeContext = createContext();
+
 function App() {
   const [name, setName] = useState("");
   const [studentNames, setStudentNames] = useState([]);
+  const [theme, setTheme] = useState(false);
 
   const myChange = (e) => {
     setName(e.target.value);
@@ -81,9 +83,11 @@ function App() {
 
   return (
     <>
-      <StudentContext.Provider value={studentNames}>
-        <RouterProvider router={router} />
-      </StudentContext.Provider>
+      <ThemeContext.Provider value={theme}>
+        <StudentContext.Provider value={studentNames}>
+          <RouterProvider router={router} />
+        </StudentContext.Provider>
+      </ThemeContext.Provider>
       <hr />
       <div className='container'>
         <form onSubmit={mySubmit}>
@@ -91,6 +95,8 @@ function App() {
           <input type="text" value={name} onChange={myChange} /> <br />
           <button type="submit">Sumbit</button>
         </form>
+        <br/>
+        <button type="button" onClick={(e) => setTheme(!theme)}>Switch Theme</button>
       </div>
       <Footer />
     </>
